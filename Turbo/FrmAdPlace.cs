@@ -200,6 +200,8 @@ namespace Turbo
            ,[Xenon]
            ,[Luke]
            ,[Conditioner]
+           ,[Conditioner]
+           ,[Conditioner]
            ,[Rear_Camera]
            ,[Rain_Sensor]
            ,[Seat_Heating]

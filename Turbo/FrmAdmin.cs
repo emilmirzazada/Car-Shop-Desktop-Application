@@ -16,6 +16,7 @@ namespace Turbo
 {
     public partial class Form1 : Form
     {
+        ClassInfoAdapter classInfoAdapter = new ClassInfoAdapter();
         SqlUtils sqlUtils = SqlUtils.getInstance();
         public Form1()
         {
@@ -31,7 +32,7 @@ namespace Turbo
 
         private void retrieveInfo()
         {
-            string _query = $@"SELECT ADS.[ID]
+            string _query = $@"SELECT ADS.[ID] as ID
 	  ,(Select Top(1) img.Car_Image from ADS_Images img where img.ADS_ID=ADS.ID) as Photo1
 	  ,(SELECT Car_Image FROM  ADS_Images where ADS_Images.ADS_ID=ADS.ID ORDER BY ID OFFSET 1 ROWS  FETCH NEXT 1 ROWS ONLY ) as Photo2
 	  ,(SELECT Car_Image FROM  ADS_Images where ADS_Images.ADS_ID=ADS.ID ORDER BY ID OFFSET 2 ROWS  FETCH NEXT 1 ROWS ONLY ) as Photo3
@@ -133,9 +134,8 @@ namespace Turbo
         }
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            DataTable Photos= new DataTable();
-            
-            Photos.Rows.Add(0, (byte[])grdC_Info.GetFocusedRowCellValue("Photo1"));
+            MessageBox.Show($"{((int)grdC_Info.GetFocusedRowCellValue("ID"))}");
+            DataTable Photos = classInfoAdapter.GetImages($"{((int)grdC_Info.GetFocusedRowCellValue("ID"))}");
             
             
             InfoModel infoModel = new InfoModel

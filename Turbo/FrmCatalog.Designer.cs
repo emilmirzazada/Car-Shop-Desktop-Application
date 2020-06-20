@@ -42,6 +42,7 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_addAd = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lkpEdtCitiesFilter = new DevExpress.XtraEditors.LookUpEdit();
             this.lkpEdtCurrencyFilter = new DevExpress.XtraEditors.LookUpEdit();
             this.lkpEdtModelsFilter = new DevExpress.XtraEditors.LookUpEdit();
             this.lkpEdtBrandsFilter = new DevExpress.XtraEditors.LookUpEdit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cardView_Cars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCitiesFilter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCurrencyFilter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtModelsFilter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtBrandsFilter.Properties)).BeginInit();
@@ -200,15 +202,16 @@
             this.btn_addAd.Appearance.Options.UseBackColor = true;
             this.btn_addAd.Appearance.Options.UseFont = true;
             this.btn_addAd.Appearance.Options.UseForeColor = true;
-            this.btn_addAd.Location = new System.Drawing.Point(666, 49);
+            this.btn_addAd.Location = new System.Drawing.Point(678, 49);
             this.btn_addAd.Name = "btn_addAd";
-            this.btn_addAd.Size = new System.Drawing.Size(148, 33);
+            this.btn_addAd.Size = new System.Drawing.Size(136, 33);
             this.btn_addAd.TabIndex = 1;
             this.btn_addAd.Text = "Elan yerləşdir";
             this.btn_addAd.Click += new System.EventHandler(this.btn_addAd_Click);
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lkpEdtCitiesFilter);
             this.panelControl1.Controls.Add(this.lkpEdtCurrencyFilter);
             this.panelControl1.Controls.Add(this.lkpEdtModelsFilter);
             this.panelControl1.Controls.Add(this.lkpEdtBrandsFilter);
@@ -226,6 +229,21 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(836, 91);
             this.panelControl1.TabIndex = 3;
+            // 
+            // lkpEdtCitiesFilter
+            // 
+            this.lkpEdtCitiesFilter.Location = new System.Drawing.Point(541, 14);
+            this.lkpEdtCitiesFilter.Name = "lkpEdtCitiesFilter";
+            this.lkpEdtCitiesFilter.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lkpEdtCitiesFilter.Properties.Appearance.Options.UseFont = true;
+            this.lkpEdtCitiesFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkpEdtCitiesFilter.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Şəhər", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.False)});
+            this.lkpEdtCitiesFilter.Properties.NullText = "Bütün şəhərlər";
+            this.lkpEdtCitiesFilter.Size = new System.Drawing.Size(121, 22);
+            this.lkpEdtCitiesFilter.TabIndex = 22;
             // 
             // lkpEdtCurrencyFilter
             // 
@@ -259,7 +277,7 @@
             // 
             // lkpEdtBrandsFilter
             // 
-            this.lkpEdtBrandsFilter.Location = new System.Drawing.Point(29, 16);
+            this.lkpEdtBrandsFilter.Location = new System.Drawing.Point(29, 14);
             this.lkpEdtBrandsFilter.Name = "lkpEdtBrandsFilter";
             this.lkpEdtBrandsFilter.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lkpEdtBrandsFilter.Properties.Appearance.Options.UseFont = true;
@@ -281,9 +299,9 @@
             this.btnFilter.Appearance.Options.UseBackColor = true;
             this.btnFilter.Appearance.Options.UseFont = true;
             this.btnFilter.Appearance.Options.UseForeColor = true;
-            this.btnFilter.Location = new System.Drawing.Point(666, 12);
+            this.btnFilter.Location = new System.Drawing.Point(678, 12);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(148, 33);
+            this.btnFilter.Size = new System.Drawing.Size(136, 33);
             this.btnFilter.TabIndex = 13;
             this.btnFilter.Text = "Axtar";
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
@@ -291,7 +309,7 @@
             // chkBarter
             // 
             this.chkBarter.EditValue = 0;
-            this.chkBarter.Location = new System.Drawing.Point(472, 55);
+            this.chkBarter.Location = new System.Drawing.Point(460, 55);
             this.chkBarter.Name = "chkBarter";
             this.chkBarter.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBarter.Properties.Appearance.Options.UseFont = true;
@@ -305,7 +323,7 @@
             // chkCredit
             // 
             this.chkCredit.EditValue = 0;
-            this.chkCredit.Location = new System.Drawing.Point(472, 12);
+            this.chkCredit.Location = new System.Drawing.Point(460, 12);
             this.chkCredit.Name = "chkCredit";
             this.chkCredit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkCredit.Properties.Appearance.Options.UseFont = true;
@@ -465,6 +483,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCitiesFilter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCurrencyFilter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtModelsFilter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtBrandsFilter.Properties)).EndInit();
@@ -519,5 +538,6 @@
         private DevExpress.XtraEditors.LookUpEdit lkpEdtModelsFilter;
         private DevExpress.XtraEditors.LookUpEdit lkpEdtCurrencyFilter;
         private DevExpress.XtraEditors.SimpleButton btnAdmin;
+        private DevExpress.XtraEditors.LookUpEdit lkpEdtCitiesFilter;
     }
 }

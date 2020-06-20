@@ -19,6 +19,7 @@ namespace Turbo
             retrieveInfo();
             setBrandData();
             SetGeneralInfo(lkpEdtCurrencyFilter, "3");
+            SetGeneralInfo(lkpEdtCitiesFilter, "7");
         }
         private void setBrandData()
         {
@@ -38,6 +39,8 @@ namespace Turbo
             lkpEdtModelsFilter.Properties.DisplayMember = "Model_Name";
             lkpEdtModelsFilter.Properties.ValueMember = "ID";
         }
+
+        
         private void retrieveInfo()
         {
             string _query1 = $@"SELECT ADS.[ID]
@@ -77,8 +80,8 @@ namespace Turbo
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(chkCredit.Checked.ToString());
             string _query1 = $@"SELECT ADS.[ID]
+      ,(Select Top(1) img.Car_Image from ADS_Images img where img.ADS_ID=ADS.ID) as Photo1
 	  ,CBR.Brand_Name
 	  ,CML.Model_Name
       ,Walk
@@ -89,7 +92,6 @@ namespace Turbo
 	  ,Graduation_Year
 	  ,GI2.Name as City
 	  ,GI3.Name as Engine_Capacity
-	  ,(Select Top(1) img.Car_Image from ADS_Images img where img.ADS_ID=ADS.ID)
   FROM [dbo].[TB_ADS] ADS
   join Car_Models CML on CML.ID=ADS.Model_ID
   join Car_Brands CBR on CBR.ID=CML.Brand_ID
@@ -103,6 +105,7 @@ namespace Turbo
             if (txtMaxPrice.Text != "") _query1 += $"and Price<'{txtMaxPrice.Text}'";
             if (txtMinGrad.Text != "") _query1 += $"and Graduation_Year>'{txtMinGrad.Text}'";
             if (txtMaxGrad.Text != "") _query1 += $"and Graduation_Year<'{txtMaxGrad.Text}'";
+            if (lkpEdtCitiesFilter.Text != "Bütün şəhərlər") _query1 += $"and GI2.Name=N'{lkpEdtCitiesFilter.Text}'";
             if (chkCredit.Checked) _query1 += $"and Credit='{chkCredit.Checked}'";
             if (chkBarter.Checked) _query1 += $"and Barter='{chkBarter.Checked}'";
             Control_Cars.DataSource = sqlUtils.GetDataWithAdapter(_query1);
