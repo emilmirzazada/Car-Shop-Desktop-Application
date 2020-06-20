@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,6 +16,8 @@ namespace Turbo
         ClassInfoAdapter classInfoAdapter = new ClassInfoAdapter();
         SqlUtils sqlUtils = SqlUtils.getInstance();
         InfoModel infoModel;
+        
+        
         public FrmAdPlace(InfoModel infoModel = null)
         {
             InitializeComponent();
@@ -27,7 +30,6 @@ namespace Turbo
         }
         private void FrmAdPlace_Load(object sender, EventArgs e)
         {
-            
                 setBrandData();
                 SetGeneralInfo(lkpEdtBodyType, "1");
                 SetGeneralInfo(lkpEdtColor, "2");
@@ -359,7 +361,7 @@ namespace Turbo
         }
 
         private void InsertAdsImage(SqlTransaction sqlTransaction, string ADS_ID)
-        {
+        { 
             DataTable dtTableImages = (DataTable)grdCntImages.DataSource;
             for (int i = 0; i < dtTableImages.Rows.Count; i++)
             {
@@ -404,6 +406,10 @@ namespace Turbo
                     }
                 }
             }
+            if (e.Button==grpCntrlPictures.CustomHeaderButtons[1])
+            {
+                grdCntImages.DataSource = classInfoAdapter.GetImages("-1");
+            }
         }
         private byte[] GetByteImage(string fileName)
         {
@@ -415,5 +421,7 @@ namespace Turbo
             fileStream.Close();
             return imgByteArray;
         }
+
+        
     }
 }

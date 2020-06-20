@@ -134,9 +134,7 @@ namespace Turbo
         }
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{((int)grdC_Info.GetFocusedRowCellValue("ID"))}");
             DataTable Photos = classInfoAdapter.GetImages($"{((int)grdC_Info.GetFocusedRowCellValue("ID"))}");
-            
             
             InfoModel infoModel = new InfoModel
                 ((int)grdC_Info.GetFocusedRowCellValue("ID")

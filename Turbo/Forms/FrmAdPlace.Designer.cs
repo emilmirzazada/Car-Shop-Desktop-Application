@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdPlace));
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            this.Car_Image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -92,6 +93,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.lkpEdtCities = new DevExpress.XtraEditors.LookUpEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.Car_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmUp_Price)).BeginInit();
@@ -119,6 +121,14 @@
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCities.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Car_Image
+            // 
+            this.Car_Image.InitialImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("Car_Image.InitialImageOptions.Image")));
+            this.Car_Image.InitialImageOptions.SvgImageSize = new System.Drawing.Size(300, 300);
+            this.Car_Image.Name = "Car_Image";
+            this.Car_Image.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.Car_Image.SvgImageSize = new System.Drawing.Size(300, 300);
             // 
             // label1
             // 
@@ -498,6 +508,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.AlwaysScrollActiveControlIntoView = false;
             this.panelControl1.Controls.Add(this.nmUp_Price);
             this.panelControl1.Controls.Add(this.nmUp_Walk);
             this.panelControl1.Controls.Add(this.nmUp_Engine_Power);
@@ -530,7 +541,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1006, 250);
+            this.panelControl1.Size = new System.Drawing.Size(1005, 250);
             this.panelControl1.TabIndex = 69;
             // 
             // nmUp_Price
@@ -733,7 +744,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 250);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1006, 106);
+            this.panelControl2.Size = new System.Drawing.Size(1005, 106);
             this.panelControl2.TabIndex = 64;
             // 
             // panelControl3
@@ -742,7 +753,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 356);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1006, 193);
+            this.panelControl3.Size = new System.Drawing.Size(1005, 227);
             this.panelControl3.TabIndex = 48;
             // 
             // grpCntrlPictures
@@ -760,7 +771,7 @@
             this.grpCntrlPictures.CustomHeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
             this.grpCntrlPictures.Location = new System.Drawing.Point(0, 0);
             this.grpCntrlPictures.Name = "grpCntrlPictures";
-            this.grpCntrlPictures.Size = new System.Drawing.Size(1004, 193);
+            this.grpCntrlPictures.Size = new System.Drawing.Size(1004, 227);
             this.grpCntrlPictures.TabIndex = 49;
             this.grpCntrlPictures.Text = "Şəkillər";
             this.grpCntrlPictures.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.grpCntrlPictures_CustomButtonClick);
@@ -768,10 +779,10 @@
             // grdCntImages
             // 
             this.grdCntImages.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grdCntImages.Location = new System.Drawing.Point(2, 20);
+            this.grdCntImages.Location = new System.Drawing.Point(2, 26);
             this.grdCntImages.MainView = this.crdVwPictures;
             this.grdCntImages.Name = "grdCntImages";
-            this.grdCntImages.Size = new System.Drawing.Size(1000, 171);
+            this.grdCntImages.Size = new System.Drawing.Size(1000, 199);
             this.grdCntImages.TabIndex = 0;
             this.grdCntImages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.crdVwPictures});
@@ -788,18 +799,20 @@
             this.crdVwPictures.Name = "crdVwPictures";
             this.crdVwPictures.OptionsBehavior.FieldAutoHeight = true;
             this.crdVwPictures.OptionsView.ShowCardCaption = false;
-            this.crdVwPictures.OptionsView.ShowFieldCaptions = false;
             this.crdVwPictures.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Auto;
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.BorderColor = System.Drawing.Color.White;
             this.gridColumn1.Caption = "ID";
             this.gridColumn1.FieldName = "ID";
             this.gridColumn1.Name = "gridColumn1";
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "Şəkil";
+            this.gridColumn2.AppearanceCell.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.gridColumn2.Caption = "*";
+            this.gridColumn2.ColumnEdit = this.Car_Image;
             this.gridColumn2.FieldName = "Car_Image";
             this.gridColumn2.ImageOptions.SvgImageSize = new System.Drawing.Size(150, 150);
             this.gridColumn2.MinWidth = 150;
@@ -824,9 +837,9 @@
             this.panelControl4.Controls.Add(this.tb_Email);
             this.panelControl4.Controls.Add(this.label20);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(0, 550);
+            this.panelControl4.Location = new System.Drawing.Point(0, 580);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1006, 117);
+            this.panelControl4.Size = new System.Drawing.Size(1005, 117);
             this.panelControl4.TabIndex = 69;
             // 
             // lkpEdtCities
@@ -848,7 +861,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScrollMargin = new System.Drawing.Size(230, 230);
-            this.ClientSize = new System.Drawing.Size(1006, 667);
+            this.ClientSize = new System.Drawing.Size(1005, 697);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.panelControl2);
@@ -858,6 +871,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FrmAdPlace_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Car_Image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -954,6 +968,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit Car_Image;
     }
 }
 
