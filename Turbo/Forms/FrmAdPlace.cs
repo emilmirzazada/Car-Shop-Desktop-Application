@@ -59,15 +59,7 @@ namespace Turbo
             {
                 if (ControlComponentEmpty())
                 {
-                    try
-                    {
-                        EditADS();
-                    }
-                    catch (Exception)
-                    {
-
-                        MessageBox.Show("Məlumat yadda saxlanılan zaman xəta baş verdi");
-                    }
+                    EditADS();
                 }
             }
             
@@ -85,10 +77,11 @@ namespace Turbo
             if (lkpEditGraduationYear.EditValue == null) { lkpEditGraduationYear.ErrorText = "Buraxılış ilini seçin"; _control = false; }
             if (lkpEdtGearbox.EditValue == null) { lkpEdtGearbox.ErrorText = "Sürətlər qutusunu seçin"; _control = false; }
             if (lkpEdt_Engine_Capacity.EditValue == null) { lkpEdt_Engine_Capacity.ErrorText = "Mühərrikin həcmini seçin"; _control = false; }
-            if (tb_Name.Text == null) { lkpEdtFuelType.ErrorText = "Adı seçin"; _control = false; }
+            if (tb_Name.Text == "") { tb_Name.ErrorText = "Adı daxil edin"; _control = false; }
             if (lkpEdtCities.EditValue == null) { lkpEdtCities.ErrorText = "Şəhəri seçin"; _control = false; }
-            if (tb_Email.Text == null) { lkpEdtFuelType.ErrorText = "Emaili seçin"; _control = false; }
-            if (crdVwPictures.DataRowCount < 3) { MessageBox.Show("Ən azı 3 çəkil daxil edilməlidir!"); _control = false; }
+            if (tb_Email.Text == "") { tb_Email.ErrorText = "Emaili daxil edin"; _control = false; }
+            if (crdVwPictures.DataRowCount < 3) { MessageBox.Show("Ən azı 3 şəkil daxil edilməlidir!"); _control = false; }
+
             return _control;
         }
 
@@ -201,8 +194,6 @@ namespace Turbo
            ,[Parking_Radar]
            ,[Xenon]
            ,[Luke]
-           ,[Conditioner]
-           ,[Conditioner]
            ,[Conditioner]
            ,[Rear_Camera]
            ,[Rain_Sensor]
@@ -377,7 +368,6 @@ namespace Turbo
                 sqlCommand.Parameters.Add("Car_Image", SqlDbType.VarBinary).Value = dtRowImage["Car_Image"];
                 sqlCommand.Parameters.Add("ADS_ID", SqlDbType.Int).Value = ADS_ID;
                 sqlCommand.ExecuteNonQuery();
-                
             }
 
         }
@@ -422,6 +412,12 @@ namespace Turbo
             return imgByteArray;
         }
 
-        
+        private void FrmAdPlace_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmCatalog frmCatalog = new FrmCatalog();
+            this.Hide();
+            frmCatalog.ShowDialog();
+            this.Close();
+        }
     }
 }

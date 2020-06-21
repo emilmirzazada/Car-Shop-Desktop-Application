@@ -93,6 +93,7 @@
             this.Control_Cars.TabIndex = 0;
             this.Control_Cars.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView_Cars});
+            this.Control_Cars.Click += new System.EventHandler(this.Control_Cars_Click);
             // 
             // cardView_Cars
             // 
@@ -477,6 +478,7 @@
             this.Name = "FrmCatalog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCatalog_FormClosed);
             this.Load += new System.EventHandler(this.FrmCatalog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Control_Cars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardView_Cars)).EndInit();

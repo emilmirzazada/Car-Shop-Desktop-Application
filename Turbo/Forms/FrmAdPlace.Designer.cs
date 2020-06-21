@@ -64,10 +64,8 @@
             this.chb_Rain_sensor = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.tb_Name = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.tb_Email = new System.Windows.Forms.TextBox();
             this.btn_Place = new System.Windows.Forms.Button();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.nmUp_Price = new System.Windows.Forms.NumericUpDown();
@@ -84,15 +82,18 @@
             this.lkpEdtModels = new DevExpress.XtraEditors.LookUpEdit();
             this.lkpEdtBrands = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.tb_Email = new DevExpress.XtraEditors.TextEdit();
+            this.tb_Name = new DevExpress.XtraEditors.TextEdit();
+            this.lkpEdtCities = new DevExpress.XtraEditors.LookUpEdit();
             this.grpCntrlPictures = new DevExpress.XtraEditors.GroupControl();
             this.grdCntImages = new DevExpress.XtraGrid.GridControl();
             this.crdVwPictures = new DevExpress.XtraGrid.Views.Card.CardView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.lkpEdtCities = new DevExpress.XtraEditors.LookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.Car_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -111,15 +112,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.lkpEdtBrands.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_Email.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_Name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCities.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCntrlPictures)).BeginInit();
             this.grpCntrlPictures.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCntImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crdVwPictures)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCities.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Car_Image
@@ -461,13 +465,6 @@
             this.label18.TabIndex = 50;
             this.label18.Text = "Adınız";
             // 
-            // tb_Name
-            // 
-            this.tb_Name.Location = new System.Drawing.Point(165, 9);
-            this.tb_Name.Name = "tb_Name";
-            this.tb_Name.Size = new System.Drawing.Size(207, 21);
-            this.tb_Name.TabIndex = 51;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -487,13 +484,6 @@
             this.label20.Size = new System.Drawing.Size(37, 16);
             this.label20.TabIndex = 54;
             this.label20.Text = "E-mail";
-            // 
-            // tb_Email
-            // 
-            this.tb_Email.Location = new System.Drawing.Point(165, 87);
-            this.tb_Email.Name = "tb_Email";
-            this.tb_Email.Size = new System.Drawing.Size(207, 21);
-            this.tb_Email.TabIndex = 55;
             // 
             // btn_Place
             // 
@@ -747,14 +737,54 @@
             this.panelControl2.Size = new System.Drawing.Size(1005, 106);
             this.panelControl2.TabIndex = 64;
             // 
-            // panelControl3
+            // panelControl4
             // 
-            this.panelControl3.Controls.Add(this.grpCntrlPictures);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(0, 356);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1005, 227);
-            this.panelControl3.TabIndex = 48;
+            this.panelControl4.Controls.Add(this.tb_Email);
+            this.panelControl4.Controls.Add(this.tb_Name);
+            this.panelControl4.Controls.Add(this.lkpEdtCities);
+            this.panelControl4.Controls.Add(this.label17);
+            this.panelControl4.Controls.Add(this.label18);
+            this.panelControl4.Controls.Add(this.btn_Place);
+            this.panelControl4.Controls.Add(this.label19);
+            this.panelControl4.Controls.Add(this.label20);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl4.Location = new System.Drawing.Point(0, 580);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(1005, 117);
+            this.panelControl4.TabIndex = 69;
+            // 
+            // tb_Email
+            // 
+            this.tb_Email.Location = new System.Drawing.Point(165, 82);
+            this.tb_Email.Name = "tb_Email";
+            this.tb_Email.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Email.Properties.Appearance.Options.UseFont = true;
+            this.tb_Email.Size = new System.Drawing.Size(207, 22);
+            this.tb_Email.TabIndex = 74;
+            // 
+            // tb_Name
+            // 
+            this.tb_Name.Location = new System.Drawing.Point(165, 11);
+            this.tb_Name.Name = "tb_Name";
+            this.tb_Name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Name.Properties.Appearance.Options.UseFont = true;
+            this.tb_Name.Size = new System.Drawing.Size(207, 22);
+            this.tb_Name.TabIndex = 73;
+            // 
+            // lkpEdtCities
+            // 
+            this.lkpEdtCities.Location = new System.Drawing.Point(165, 45);
+            this.lkpEdtCities.Name = "lkpEdtCities";
+            this.lkpEdtCities.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lkpEdtCities.Properties.Appearance.Options.UseFont = true;
+            this.lkpEdtCities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkpEdtCities.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Şəhərlər")});
+            this.lkpEdtCities.Properties.NullText = "";
+            this.lkpEdtCities.Size = new System.Drawing.Size(207, 22);
+            this.lkpEdtCities.TabIndex = 72;
             // 
             // grpCntrlPictures
             // 
@@ -785,7 +815,8 @@
             this.grdCntImages.Size = new System.Drawing.Size(1000, 199);
             this.grdCntImages.TabIndex = 0;
             this.grdCntImages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.crdVwPictures});
+            this.crdVwPictures,
+            this.gridView1});
             // 
             // crdVwPictures
             // 
@@ -826,36 +857,19 @@
             this.gridColumn3.FieldName = "ADS_ID";
             this.gridColumn3.Name = "gridColumn3";
             // 
-            // panelControl4
+            // gridView1
             // 
-            this.panelControl4.Controls.Add(this.lkpEdtCities);
-            this.panelControl4.Controls.Add(this.label17);
-            this.panelControl4.Controls.Add(this.label18);
-            this.panelControl4.Controls.Add(this.tb_Name);
-            this.panelControl4.Controls.Add(this.btn_Place);
-            this.panelControl4.Controls.Add(this.label19);
-            this.panelControl4.Controls.Add(this.tb_Email);
-            this.panelControl4.Controls.Add(this.label20);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl4.Location = new System.Drawing.Point(0, 580);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1005, 117);
-            this.panelControl4.TabIndex = 69;
+            this.gridView1.GridControl = this.grdCntImages;
+            this.gridView1.Name = "gridView1";
             // 
-            // lkpEdtCities
+            // panelControl3
             // 
-            this.lkpEdtCities.Location = new System.Drawing.Point(165, 45);
-            this.lkpEdtCities.Name = "lkpEdtCities";
-            this.lkpEdtCities.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lkpEdtCities.Properties.Appearance.Options.UseFont = true;
-            this.lkpEdtCities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkpEdtCities.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Şəhərlər")});
-            this.lkpEdtCities.Properties.NullText = "";
-            this.lkpEdtCities.Size = new System.Drawing.Size(207, 22);
-            this.lkpEdtCities.TabIndex = 72;
+            this.panelControl3.Controls.Add(this.grpCntrlPictures);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(0, 356);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1005, 227);
+            this.panelControl3.TabIndex = 48;
             // 
             // FrmAdPlace
             // 
@@ -870,6 +884,7 @@
             this.Name = "FrmAdPlace";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAdPlace_FormClosed);
             this.Load += new System.EventHandler(this.FrmAdPlace_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Car_Image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -891,16 +906,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_Email.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_Name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCities.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCntrlPictures)).EndInit();
             this.grpCntrlPictures.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdCntImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crdVwPictures)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
-            this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lkpEdtCities.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -939,15 +957,12 @@
         private System.Windows.Forms.CheckBox chb_Rain_sensor;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox tb_Name;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox tb_Email;
         private System.Windows.Forms.Button btn_Place;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.LookUpEdit lkpEdtModels;
         private DevExpress.XtraEditors.LookUpEdit lkpEdtBrands;
         private DevExpress.XtraEditors.LookUpEdit lkpEdtBodyType;
@@ -961,6 +976,9 @@
         private System.Windows.Forms.NumericUpDown nmUp_Engine_Power;
         private DevExpress.XtraEditors.LookUpEdit lkpEdt_Engine_Capacity;
         private System.Windows.Forms.NumericUpDown nmUp_Price;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit Car_Image;
+        private DevExpress.XtraEditors.TextEdit tb_Name;
+        private DevExpress.XtraEditors.TextEdit tb_Email;
         private System.Windows.Forms.NumericUpDown nmUp_Walk;
         private DevExpress.XtraEditors.GroupControl grpCntrlPictures;
         private DevExpress.XtraGrid.GridControl grdCntImages;
@@ -968,7 +986,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit Car_Image;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
     }
 }
 

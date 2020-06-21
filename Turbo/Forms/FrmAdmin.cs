@@ -88,13 +88,16 @@ namespace Turbo
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             SqlConnection sqlConnection = new SqlConnection(sqlUtils.conString);
-            string _query = "Delete from info where ID="+ grdC_Info.GetFocusedRowCellValue("ID").ToString();
-            SqlCommand sqlCommand = new SqlCommand(_query, sqlConnection);
+            string _query1 = "Delete from ADS_Images where ADS_ID=" + grdC_Info.GetFocusedRowCellValue("ID").ToString();
+            string _query2 = "Delete from TB_ADS where ID="+ grdC_Info.GetFocusedRowCellValue("ID").ToString();
+            SqlCommand sqlCommand1 = new SqlCommand(_query1, sqlConnection);
+            SqlCommand sqlCommand2 = new SqlCommand(_query2, sqlConnection);
             sqlConnection.Open();
-            sqlCommand.ExecuteNonQuery();
+            sqlCommand1.ExecuteNonQuery();
+            sqlCommand2.ExecuteNonQuery();
             sqlConnection.Close();
-            retrieveInfo();
             MessageBox.Show("Uğurla silindi");
+            retrieveInfo();
         }
 
         private void Control_Click(object sender, EventArgs e)
@@ -178,12 +181,14 @@ namespace Turbo
             retrieveInfo();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+       
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
             FrmCatalog frmCatalog = new FrmCatalog();
+            this.Hide();
+            frmCatalog.ShowDialog();
             this.Close();
-            frmCatalog.Show();
         }
     }
 }

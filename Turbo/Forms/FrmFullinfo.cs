@@ -18,6 +18,7 @@ namespace Turbo
     {
         int id;
         SqlUtils sqlUtils = SqlUtils.getInstance();
+        ClassInfoAdapter classInfoAdapter = new ClassInfoAdapter();
         public FrmFullinfo(int id)
         {
             InitializeComponent();
@@ -27,30 +28,11 @@ namespace Turbo
         {
             retrieveData();
         }
-        private void pic_Small3_Click(object sender, EventArgs e)
-        {
-            pictureBox_Car_Main.Image = pic_Small3.Image;
-            pictureBox_Car_Main.SizeMode = PictureBoxSizeMode.Zoom;
-        }
-
-        private void pic_Small2_Click(object sender, EventArgs e)
-        {
-            pictureBox_Car_Main.Image = pic_Small2.Image;
-            pictureBox_Car_Main.SizeMode = PictureBoxSizeMode.Zoom;
-        }
-
-        private void pic_Small1_Click(object sender, EventArgs e)
-        {
-            pictureBox_Car_Main.Image = pic_Small1.Image;
-            pictureBox_Car_Main.SizeMode = PictureBoxSizeMode.Zoom;
-        }
+       
         private void retrieveData()
         {
             string _query = $@"SELECT ADS.[ID]
-	  ,(Select Top(1) img.Car_Image from ADS_Images img where img.ADS_ID=ADS.ID) as Photo1
-	  ,(SELECT Car_Image FROM  ADS_Images where ADS_Images.ADS_ID=ADS.ID ORDER BY ID OFFSET 1 ROWS  FETCH NEXT 1 ROWS ONLY ) as Photo2
-	  ,(SELECT Car_Image FROM  ADS_Images where ADS_Images.ADS_ID=ADS.ID ORDER BY ID OFFSET 2 ROWS  FETCH NEXT 1 ROWS ONLY ) as Photo3
-	  ,(SELECT Car_Image FROM  ADS_Images where ADS_Images.ADS_ID=ADS.ID ORDER BY ID OFFSET 3 ROWS  FETCH NEXT 1 ROWS ONLY ) as Photo4
+      ,(Select Top(1) img.Car_Image from ADS_Images img where img.ADS_ID=ADS.ID) as Photo1
 	  ,CBR.Brand_Name
 	  ,CML.Model_Name
 	  ,GI3.Name as Body_Type
@@ -92,23 +74,27 @@ namespace Turbo
   join General_Info GI7 on GI7.ID=ADS.Fuel_Type_ID
   join General_Info GI8 on GI8.ID=ADS.Transmission_ID
   join General_Info GI9 on GI9.ID=ADS.City_ID where ADS.[ID]=" + id;
+
+            grdCntImages.DataSource = classInfoAdapter.GetImages($"{id}");
+
+
             DataTable dt = sqlUtils.GetDataWithAdapter(_query);
 
-            byte[] picArr1 = (byte[])dt.Rows[0]["Photo1"];
-            byte[] picArr1_1 = (byte[])dt.Rows[0]["Photo2"];
-            byte[] picArr1_2 = (byte[])dt.Rows[0]["Photo3"];
-            byte[] picArr1_3 = (byte[])dt.Rows[0]["Photo4"];
-            pictureBox_Car_Main.Image = (Bitmap)((new ImageConverter()).ConvertFrom(picArr1));
-            pictureBox1.Image = pictureBox_Car_Main.Image;
-            pic_Small1.Image = (Bitmap)((new ImageConverter()).ConvertFrom(picArr1_1));
-            pic_Small2.Image = (Bitmap)((new ImageConverter()).ConvertFrom(picArr1_2));
-            pic_Small3.Image = (Bitmap)((new ImageConverter()).ConvertFrom(picArr1_3));
+            
+            byte[] byteArray = (byte[])dt.Rows[0]["Photo1"];
+            Image image = (Bitmap)((new ImageConverter()).ConvertFrom(byteArray));
+            pictureBox_Car_Main.Image = image;
+            pictureBox_Car_Main.SizeMode = PictureBoxSizeMode.Zoom;
+
+            lbl_Marka.Text = dt.Rows[0]["Brand_Name"].ToString();
+            lbl_Model.Text = dt.Rows[0]["Model_Name"].ToString();
+            lbl_Price.Text = dt.Rows[0]["Price"].ToString();
 
             lbl_FuelType.Text = dt.Rows[0]["Fuel_Type"].ToString();
             lbl_Transmission.Text = dt.Rows[0]["Transmission"].ToString();
             lbl_City.Text = dt.Rows[0]["City"].ToString();
-            lbl_Cat_brand1.Text = dt.Rows[0]["Brand_Name"].ToString();
-            lbl_Cat_Model1.Text = dt.Rows[0]["Model_Name"].ToString();
+            lbl_Price_Main.Text = dt.Rows[0]["Price"].ToString();
+            lbl_Currency_Main.Text = dt.Rows[0]["Currency"].ToString();
             lbl_Grad.Text = dt.Rows[0]["Graduation_Year"].ToString();
             lbl_BodyType.Text = dt.Rows[0]["Body_Type"].ToString();
             lbl_Color.Text = dt.Rows[0]["Color"].ToString();
@@ -116,17 +102,7 @@ namespace Turbo
             lbl_EnginePower.Text = dt.Rows[0]["HP"].ToString();
             lbl_Walk.Text = dt.Rows[0]["Walk"].ToString();
             lbl_Gearbox.Text = dt.Rows[0]["Gearbox"].ToString();
-            lbl_CatPrice1.Text = dt.Rows[0]["Price"].ToString();
-            lbl_Marka.Text = lbl_Cat_brand1.Text;
-            lbl_Model.Text = lbl_Cat_Model1.Text;
-            if (dt.Rows[0]["Currency"].ToString()=="AZN")
-                lbl_CatPrice1.Text += "\nAZN";
-            else if (dt.Rows[0]["Currency"].ToString() == "USD")
-                lbl_CatPrice1.Text += "$";
-            else
-                lbl_CatPrice1.Text += "\nEUR";
-            lbl_Price_Main.Text = lbl_CatPrice1.Text;
-            lbl_Price.Text = lbl_CatPrice1.Text;
+
 
             chkCredit.Checked = (bool)dt.Rows[0]["Credit"];
             if (chkCredit.Checked) chkCredit.ForeColor = Color.Green;
@@ -182,9 +158,13 @@ namespace Turbo
             chkRearViewCamera.Enabled = false; chkSideCurtains.Enabled = false;
             chkSeatVentilation.Enabled = false; chkBarter.Enabled = false; chkCredit.Enabled = false;
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private void crdVwPictures_Click(object sender, EventArgs e)
         {
-            pictureBox_Car_Main.Image = pictureBox1.Image;
+            byte[] byteArray = (byte[])crdVwPictures.GetFocusedRowCellValue("Car_Image");
+            Image image = (Bitmap)((new ImageConverter()).ConvertFrom(byteArray));
+            pictureBox_Car_Main.Image = image;
+            pictureBox_Car_Main.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }
 }

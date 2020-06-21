@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.picShow1 = new System.Windows.Forms.PictureBox();
             this.lbl_Brand = new DevExpress.XtraEditors.LabelControl();
             this.lbl_Model = new DevExpress.XtraEditors.LabelControl();
@@ -89,15 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picShow3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picShow4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(286, 26);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(110, 44);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Geri qayıt";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // picShow1
             // 
@@ -607,10 +597,10 @@
             this.Controls.Add(this.lbl_Model);
             this.Controls.Add(this.lbl_Brand);
             this.Controls.Add(this.picShow1);
-            this.Controls.Add(this.btnBack);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picShow1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Control)).EndInit();
@@ -624,7 +614,6 @@
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton btnBack;
         private System.Windows.Forms.PictureBox picShow1;
         private DevExpress.XtraEditors.LabelControl lbl_Brand;
         private DevExpress.XtraEditors.LabelControl lbl_Model;

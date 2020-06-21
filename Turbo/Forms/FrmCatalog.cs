@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System;
+using System.Data;
 using System.Windows.Forms;
 using Turbo.Classes;
 
@@ -23,7 +24,11 @@ namespace Turbo
         }
         private void setBrandData()
         {
-            lkpEdtBrandsFilter.Properties.DataSource = classInfoAdapter.GetBrands();
+            string _query = @"Select  ID, Brand_Name
+            from Car_Brands
+            Union
+            Select - 1, N'Bütün markalar'";
+            lkpEdtBrandsFilter.Properties.DataSource = sqlUtils.GetDataWithAdapter(_query);
             lkpEdtBrandsFilter.Properties.DisplayMember = "Brand_Name";
             lkpEdtBrandsFilter.Properties.ValueMember = "ID";
         }
@@ -35,7 +40,10 @@ namespace Turbo
         }
         private void lkpEdtBrandsFilter_EditValueChanged(object sender, EventArgs e)
         {
-            lkpEdtModelsFilter.Properties.DataSource = classInfoAdapter.GetModels(lkpEdtBrandsFilter.EditValue.ToString());
+            string _query = $@"Select ID, Model_Name from Car_Models where Brand_ID={lkpEdtBrandsFilter.EditValue.ToString()}
+                Union
+                Select - 1, N'Bütün modellər'";
+            lkpEdtModelsFilter.Properties.DataSource = sqlUtils.GetDataWithAdapter(_query);
             lkpEdtModelsFilter.Properties.DisplayMember = "Model_Name";
             lkpEdtModelsFilter.Properties.ValueMember = "ID";
         }
@@ -67,15 +75,17 @@ namespace Turbo
         private void btn_addAd_Click(object sender, EventArgs e)
         {
             FrmAdPlace frmAdPlace = new FrmAdPlace();
+            this.Hide();
             frmAdPlace.ShowDialog();
+            this.Close();
         }
 
         private void cardView_Cars_Click(object sender, EventArgs e)
         {
             int id = (int)cardView_Cars.GetFocusedRowCellValue("ID");
 
-            FrmFullinfo homeFrm = new FrmFullinfo(id);
-            homeFrm.ShowDialog();
+            FrmFullinfo frmFullinfo = new FrmFullinfo(id);
+            frmFullinfo.ShowDialog();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -115,7 +125,19 @@ namespace Turbo
         {
             Form1 form1 = new Form1();
             this.Hide();
-            form1.Show();
+            form1.ShowDialog();
+            this.Close();
+            
+        }
+
+        private void FrmCatalog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void Control_Cars_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
