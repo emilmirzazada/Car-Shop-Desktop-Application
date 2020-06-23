@@ -1,10 +1,8 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Turbo.Classes;
@@ -62,7 +60,7 @@ namespace Turbo
                     EditADS();
                 }
             }
-            
+            this.Close();
         }
 
         private bool ControlComponentEmpty()
@@ -376,7 +374,8 @@ namespace Turbo
         {
             lkpEdtModels.Properties.DataSource = classInfoAdapter.GetModels(lkpEdtBrands.EditValue.ToString());
             lkpEdtModels.Properties.DisplayMember = "Model_Name";
-            lkpEdtModels.Properties.ValueMember = "ID";
+            lkpEdtModels.Properties.ValueMember = "ID";     
+
         }
 
         private void grpCntrlPictures_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
@@ -410,14 +409,6 @@ namespace Turbo
             binaryReader.Close();
             fileStream.Close();
             return imgByteArray;
-        }
-
-        private void FrmAdPlace_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FrmCatalog frmCatalog = new FrmCatalog();
-            this.Hide();
-            frmCatalog.ShowDialog();
-            this.Close();
         }
     }
 }

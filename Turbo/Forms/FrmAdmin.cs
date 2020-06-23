@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Turbo.Classes;
 
@@ -99,42 +91,6 @@ namespace Turbo
             MessageBox.Show("Uğurla silindi");
             retrieveInfo();
         }
-
-        private void Control_Click(object sender, EventArgs e)
-        {
-            picShow1.Image = (Bitmap)((new ImageConverter()).ConvertFrom(grdC_Info.GetFocusedRowCellValue("Photo1")));
-            picShow2.Image = (Bitmap)((new ImageConverter()).ConvertFrom(grdC_Info.GetFocusedRowCellValue("Photo2")));
-            picShow3.Image = (Bitmap)((new ImageConverter()).ConvertFrom(grdC_Info.GetFocusedRowCellValue("Photo3")));
-            picShow4.Image = (Bitmap)((new ImageConverter()).ConvertFrom(grdC_Info.GetFocusedRowCellValue("Photo4")));
-            picShow1.SizeMode = PictureBoxSizeMode.Zoom;
-            picShow2.SizeMode = PictureBoxSizeMode.Zoom;
-            picShow3.SizeMode = PictureBoxSizeMode.Zoom;
-            picShow4.SizeMode = PictureBoxSizeMode.Zoom;
-
-            lbl_Brand.Text = grdC_Info.GetFocusedRowCellValue("Brand_Name").ToString();
-            lbl_Model.Text = grdC_Info.GetFocusedRowCellValue("Model_Name").ToString();
-            lbl_Price.Text = grdC_Info.GetFocusedRowCellValue("Price").ToString();
-            lbl_Graduation_Year.Text = grdC_Info.GetFocusedRowCellValue("Graduation_Year").ToString() + " *  ";
-            lbl_Engine_Capacity.Text = grdC_Info.GetFocusedRowCellValue("Engine_Capacity").ToString() + " *  ";
-            lbl_Walk.Text = grdC_Info.GetFocusedRowCellValue("Walk").ToString();
-            lbl_City.Text = grdC_Info.GetFocusedRowCellValue("City").ToString();
-
-            if (grdC_Info.GetFocusedRowCellValue("Currency").ToString()=="AZN")
-                lbl_Currency.Text = "AZN";
-            else if (grdC_Info.GetFocusedRowCellValue("Currency").ToString() == "USD")
-                lbl_Currency.Text = "$";
-            else
-                lbl_Currency.Text = "EUR";
-
-            lbl_Brand.Visible = true;
-            lbl_Model.Visible = true;
-            lbl_Price.Visible = true;
-            lbl_Graduation_Year.Visible = true;
-            lbl_Engine_Capacity.Visible = true;
-            lbl_Walk.Visible = true;
-            lbl_City.Visible = true;
-            lbl_Currency.Visible = true;
-        }
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             DataTable Photos = classInfoAdapter.GetImages($"{((int)grdC_Info.GetFocusedRowCellValue("ID"))}");
@@ -177,18 +133,8 @@ namespace Turbo
                 );
             FrmAdPlace frmAdPlace = new FrmAdPlace(infoModel);
             this.Hide();
-            frmAdPlace.Show();
+            frmAdPlace.ShowDialog();
             retrieveInfo();
-        }
-
-       
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FrmCatalog frmCatalog = new FrmCatalog();
-            this.Hide();
-            frmCatalog.ShowDialog();
-            this.Close();
         }
     }
 }

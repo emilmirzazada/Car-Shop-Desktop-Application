@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Card.ViewInfo;
 using System;
-using System.Data;
 using System.Windows.Forms;
 using Turbo.Classes;
 
@@ -48,7 +48,7 @@ namespace Turbo
             lkpEdtModelsFilter.Properties.ValueMember = "ID";
         }
 
-        
+
         private void retrieveInfo()
         {
             string _query1 = $@"SELECT ADS.[ID]
@@ -71,21 +71,11 @@ namespace Turbo
   join General_Info GI4 on GI4.ID=ADS.City_ID";
             Control_Cars.DataSource = sqlUtils.GetDataWithAdapter(_query1);
         }
-        
+
         private void btn_addAd_Click(object sender, EventArgs e)
         {
             FrmAdPlace frmAdPlace = new FrmAdPlace();
-            this.Hide();
             frmAdPlace.ShowDialog();
-            this.Close();
-        }
-
-        private void cardView_Cars_Click(object sender, EventArgs e)
-        {
-            int id = (int)cardView_Cars.GetFocusedRowCellValue("ID");
-
-            FrmFullinfo frmFullinfo = new FrmFullinfo(id);
-            frmFullinfo.ShowDialog();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -108,13 +98,13 @@ namespace Turbo
   join General_Info GI1 on GI1.ID=ADS.Currency_ID
   join General_Info GI2 on GI2.ID=ADS.City_ID
   join General_Info GI3 on GI3.ID=ADS.Engine_Capacity_ID where GI1.Name = '{lkpEdtCurrencyFilter.Text}'";
-            
+
             if (lkpEdtBrandsFilter.Text != "Bütün markalar") _query1 += $" and Brand_Name='{lkpEdtBrandsFilter.Text}'";
             if (lkpEdtModelsFilter.Text != "Bütün modellər") _query1 += $"and Model_Name='{lkpEdtModelsFilter.Text}'";
-            if (txtMinPrice.Text != "") _query1 += $"and Price>'{txtMinPrice.Text}'";
-            if (txtMaxPrice.Text != "") _query1 += $"and Price<'{txtMaxPrice.Text}'";
-            if (txtMinGrad.Text != "") _query1 += $"and Graduation_Year>'{txtMinGrad.Text}'";
-            if (txtMaxGrad.Text != "") _query1 += $"and Graduation_Year<'{txtMaxGrad.Text}'";
+            if (txtMinPrice.Text != "") _query1 += $"and Price>='{txtMinPrice.Text}'";
+            if (txtMaxPrice.Text != "") _query1 += $"and Price<='{txtMaxPrice.Text}'";
+            if (txtMinGrad.Text != "") _query1 += $"and Graduation_Year>='{txtMinGrad.Text}'";
+            if (txtMaxGrad.Text != "") _query1 += $"and Graduation_Year<='{txtMaxGrad.Text}'";
             if (lkpEdtCitiesFilter.Text != "Bütün şəhərlər") _query1 += $"and GI2.Name=N'{lkpEdtCitiesFilter.Text}'";
             if (chkCredit.Checked) _query1 += $"and Credit='{chkCredit.Checked}'";
             if (chkBarter.Checked) _query1 += $"and Barter='{chkBarter.Checked}'";
@@ -124,20 +114,37 @@ namespace Turbo
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            this.Hide();
             form1.ShowDialog();
-            this.Close();
-            
+
         }
 
-        private void FrmCatalog_FormClosed(object sender, FormClosedEventArgs e)
+        private void cardView_Cars_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void Control_Cars_Click(object sender, EventArgs e)
-        {
-
+            int id=0;
+            if (cardView_Cars.FocusedRowHandle < 0)
+            {
+                MessageBox.Show("Axtarışınıza uyğun məlumat yoxdur!");
+                return;
+            }
+            else if (cardView_Cars.FocusedRowHandle > 0)
+            {
+                id = (int)cardView_Cars.GetFocusedRowCellValue("ID");
+                
+                cardView_Cars.FocusedRowHandle = 0;
+                cardView_Cars.FocusedColumn = null;
+            }
+            else if (cardView_Cars.FocusedRowHandle == 0)
+            {
+                if (cardView_Cars.FocusedRowHandle == 0 && cardView_Cars.FocusedColumn == null)
+                {
+                    return;
+                }
+                id = (int)cardView_Cars.GetFocusedRowCellValue("ID");               
+                cardView_Cars.FocusedRowHandle = 0;
+                cardView_Cars.FocusedColumn = null;
+            }
+            FrmFullinfo frmFullinfo = new FrmFullinfo(id);
+            frmFullinfo.ShowDialog();
         }
     }
 }

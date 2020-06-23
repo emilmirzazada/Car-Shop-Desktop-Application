@@ -28,15 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picShow1 = new System.Windows.Forms.PictureBox();
-            this.lbl_Brand = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Model = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Graduation_Year = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Engine_Capacity = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Walk = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_City = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Currency = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Price = new DevExpress.XtraEditors.LabelControl();
             this.btn_Delete = new DevExpress.XtraEditors.SimpleButton();
             this.Control = new DevExpress.XtraGrid.GridControl();
             this.grdC_Info = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -78,112 +69,9 @@
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Edit = new DevExpress.XtraEditors.SimpleButton();
-            this.picShow2 = new System.Windows.Forms.PictureBox();
-            this.picShow3 = new System.Windows.Forms.PictureBox();
-            this.picShow4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picShow1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Control)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdC_Info)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShow2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShow3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShow4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picShow1
-            // 
-            this.picShow1.Location = new System.Drawing.Point(666, 174);
-            this.picShow1.Name = "picShow1";
-            this.picShow1.Size = new System.Drawing.Size(204, 172);
-            this.picShow1.TabIndex = 4;
-            this.picShow1.TabStop = false;
-            // 
-            // lbl_Brand
-            // 
-            this.lbl_Brand.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Brand.Appearance.Options.UseFont = true;
-            this.lbl_Brand.Location = new System.Drawing.Point(684, 354);
-            this.lbl_Brand.Name = "lbl_Brand";
-            this.lbl_Brand.Size = new System.Drawing.Size(66, 18);
-            this.lbl_Brand.TabIndex = 9;
-            this.lbl_Brand.Text = "lbl_Brand";
-            this.lbl_Brand.Visible = false;
-            // 
-            // lbl_Model
-            // 
-            this.lbl_Model.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Model.Appearance.Options.UseFont = true;
-            this.lbl_Model.Location = new System.Drawing.Point(781, 354);
-            this.lbl_Model.Name = "lbl_Model";
-            this.lbl_Model.Size = new System.Drawing.Size(67, 18);
-            this.lbl_Model.TabIndex = 10;
-            this.lbl_Model.Text = "lbl_Model";
-            this.lbl_Model.Visible = false;
-            // 
-            // lbl_Graduation_Year
-            // 
-            this.lbl_Graduation_Year.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Graduation_Year.Appearance.Options.UseFont = true;
-            this.lbl_Graduation_Year.Location = new System.Drawing.Point(684, 378);
-            this.lbl_Graduation_Year.Name = "lbl_Graduation_Year";
-            this.lbl_Graduation_Year.Size = new System.Drawing.Size(59, 18);
-            this.lbl_Graduation_Year.TabIndex = 12;
-            this.lbl_Graduation_Year.Text = "lbl_Grad";
-            this.lbl_Graduation_Year.Visible = false;
-            // 
-            // lbl_Engine_Capacity
-            // 
-            this.lbl_Engine_Capacity.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Engine_Capacity.Appearance.Options.UseFont = true;
-            this.lbl_Engine_Capacity.Location = new System.Drawing.Point(745, 378);
-            this.lbl_Engine_Capacity.Name = "lbl_Engine_Capacity";
-            this.lbl_Engine_Capacity.Size = new System.Drawing.Size(64, 18);
-            this.lbl_Engine_Capacity.TabIndex = 13;
-            this.lbl_Engine_Capacity.Text = "lbl_Engin";
-            this.lbl_Engine_Capacity.Visible = false;
-            // 
-            // lbl_Walk
-            // 
-            this.lbl_Walk.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Walk.Appearance.Options.UseFont = true;
-            this.lbl_Walk.Location = new System.Drawing.Point(789, 378);
-            this.lbl_Walk.Name = "lbl_Walk";
-            this.lbl_Walk.Size = new System.Drawing.Size(59, 18);
-            this.lbl_Walk.TabIndex = 14;
-            this.lbl_Walk.Text = "lbl_Walk";
-            this.lbl_Walk.Visible = false;
-            // 
-            // lbl_City
-            // 
-            this.lbl_City.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_City.Appearance.Options.UseFont = true;
-            this.lbl_City.Location = new System.Drawing.Point(684, 402);
-            this.lbl_City.Name = "lbl_City";
-            this.lbl_City.Size = new System.Drawing.Size(51, 18);
-            this.lbl_City.TabIndex = 15;
-            this.lbl_City.Text = "lbl_City";
-            this.lbl_City.Visible = false;
-            // 
-            // lbl_Currency
-            // 
-            this.lbl_Currency.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Currency.Appearance.Options.UseFont = true;
-            this.lbl_Currency.Location = new System.Drawing.Point(745, 317);
-            this.lbl_Currency.Name = "lbl_Currency";
-            this.lbl_Currency.Size = new System.Drawing.Size(86, 18);
-            this.lbl_Currency.TabIndex = 16;
-            this.lbl_Currency.Text = "lbl_Currency";
-            this.lbl_Currency.Visible = false;
-            // 
-            // lbl_Price
-            // 
-            this.lbl_Price.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Price.Appearance.Options.UseFont = true;
-            this.lbl_Price.Location = new System.Drawing.Point(682, 317);
-            this.lbl_Price.Name = "lbl_Price";
-            this.lbl_Price.Size = new System.Drawing.Size(61, 18);
-            this.lbl_Price.TabIndex = 17;
-            this.lbl_Price.Text = "lbl_Price";
-            this.lbl_Price.Visible = false;
             // 
             // btn_Delete
             // 
@@ -199,11 +87,10 @@
             this.Control.Location = new System.Drawing.Point(2, 100);
             this.Control.MainView = this.grdC_Info;
             this.Control.Name = "Control";
-            this.Control.Size = new System.Drawing.Size(578, 451);
+            this.Control.Size = new System.Drawing.Size(1031, 451);
             this.Control.TabIndex = 19;
             this.Control.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdC_Info});
-            this.Control.Click += new System.EventHandler(this.Control_Click);
             // 
             // grdC_Info
             // 
@@ -553,83 +440,28 @@
             this.btn_Edit.Text = "Redaktə et";
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
-            // picShow2
-            // 
-            this.picShow2.Location = new System.Drawing.Point(900, 100);
-            this.picShow2.Name = "picShow2";
-            this.picShow2.Size = new System.Drawing.Size(121, 107);
-            this.picShow2.TabIndex = 23;
-            this.picShow2.TabStop = false;
-            // 
-            // picShow3
-            // 
-            this.picShow3.Location = new System.Drawing.Point(900, 231);
-            this.picShow3.Name = "picShow3";
-            this.picShow3.Size = new System.Drawing.Size(121, 107);
-            this.picShow3.TabIndex = 24;
-            this.picShow3.TabStop = false;
-            // 
-            // picShow4
-            // 
-            this.picShow4.Location = new System.Drawing.Point(900, 370);
-            this.picShow4.Name = "picShow4";
-            this.picShow4.Size = new System.Drawing.Size(121, 107);
-            this.picShow4.TabIndex = 25;
-            this.picShow4.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 550);
-            this.Controls.Add(this.picShow4);
-            this.Controls.Add(this.picShow3);
-            this.Controls.Add(this.picShow2);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.Control);
             this.Controls.Add(this.btn_Delete);
-            this.Controls.Add(this.lbl_Price);
-            this.Controls.Add(this.lbl_Currency);
-            this.Controls.Add(this.lbl_City);
-            this.Controls.Add(this.lbl_Walk);
-            this.Controls.Add(this.lbl_Engine_Capacity);
-            this.Controls.Add(this.lbl_Graduation_Year);
-            this.Controls.Add(this.lbl_Model);
-            this.Controls.Add(this.lbl_Brand);
-            this.Controls.Add(this.picShow1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picShow1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Control)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdC_Info)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShow2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShow3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picShow4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox picShow1;
-        private DevExpress.XtraEditors.LabelControl lbl_Brand;
-        private DevExpress.XtraEditors.LabelControl lbl_Model;
-        
-        private DevExpress.XtraEditors.LabelControl lbl_Graduation_Year;
-        private DevExpress.XtraEditors.LabelControl lbl_Engine_Capacity;
-        private DevExpress.XtraEditors.LabelControl lbl_Walk;
-        private DevExpress.XtraEditors.LabelControl lbl_City;
-        private DevExpress.XtraEditors.LabelControl lbl_Currency;
-        private DevExpress.XtraEditors.LabelControl lbl_Price;
         private DevExpress.XtraEditors.SimpleButton btn_Delete;
         private DevExpress.XtraGrid.GridControl Control;
         private DevExpress.XtraEditors.SimpleButton btn_Edit;
-        private System.Windows.Forms.PictureBox picShow2;
-        private System.Windows.Forms.PictureBox picShow3;
-        private System.Windows.Forms.PictureBox picShow4;
         private DevExpress.XtraGrid.Views.Grid.GridView grdC_Info;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;

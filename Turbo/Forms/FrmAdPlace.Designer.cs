@@ -884,7 +884,6 @@
             this.Name = "FrmAdPlace";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAdPlace_FormClosed);
             this.Load += new System.EventHandler(this.FrmAdPlace_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Car_Image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
